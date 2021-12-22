@@ -26,3 +26,91 @@ html {
 *::after {
     box-sizing: inherit;
 }
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #DBE5DE;
+    margin: 0;
+    padding: 0;
+}
+section{
+    max-width: 1200px;
+    padding: 0 auto;
+    margin: 0 1rem;
+}
+section h2{
+    font-size: 2.5rem;
+}
+/*****************
+New styles begin here and continue to the end of the page 
+****************/
+
+section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
+Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
+figure{
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    max-height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+/* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
+figure img{
+    margin-bottom: -4px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 -150px;
+}
+figcaption{
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.875rem;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+/* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
+figcaption a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color:  var(--color2);
+}
+/* turn on flexbox here - prior to this, elements stacked individually as blocks */
+@media (min-width: 550px){
+    section ul{
+        display: flex;
+        justify-content: space-between;
+        flex-flow:  row wrap;
+    }
+    section li{
+        flex-basis: 49.5%;
+    }
+     /* turn off object position, inherit object-fit: cover */
+     figure img{
+         object-position: 0;
+     }
+}
+@media (min-width: 800px) {
+    section h2 {
+        margin-left: 100px;
+    }
+    section li {
+        flex-basis: 32.5%;
+    }
+}
+@media (min-width: 320px){
+    figure img{
+        object-position: 0;
+        width: 100%;
+        height: auto;
+    }
+    section li{
+        flex-basis: 32%;
+    }
+}
