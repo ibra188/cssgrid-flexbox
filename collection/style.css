@@ -96,6 +96,43 @@ figcaption a {
          object-position: 0;
      }
 }
+@media (max-width: 1440px){
+    section ul{
+        display: flex;
+        justify-content: space-between;
+        flex-flow:  row wrap;
+        padding-left: 17rem;
+    }
+    section h2 {
+        padding-left: 10rem;
+    }
+    section li{
+        flex-basis: 66.5%;
+    }
+     /* turn off object position, inherit object-fit: cover */
+     figure img{
+         object-position: 0;
+     }
+}
+@media (max-width: 2560px){
+    section ul{
+        display: flex;
+        justify-content: space-between;
+        flex-flow:  row wrap;
+        padding-left: 30rem;
+        
+    }
+    section h2 {
+        padding-left: 23rem;
+    }
+    section li{
+        flex-basis: 100%;
+    }
+     /* turn off object position, inherit object-fit: cover */
+     figure img{
+         object-position: 0;
+     }
+}
 @media (min-width: 800px) {
     section h2 {
         margin-left: 100px;
