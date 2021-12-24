@@ -26,74 +26,239 @@ html {
 *::after {
     box-sizing: inherit;
 }
-body{
+
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #DBE5DE;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
-section{
+
+section {
     max-width: 1200px;
-    padding: 0 auto;
-    margin: 0 1rem;
+    margin: 0 auto 5rem auto;
+    padding: 0 1rem;
 }
-section h2{
+
+section h2 {
     font-size: 2.5rem;
 }
-/*****************
-New styles begin here and continue to the end of the page 
-****************/
 
 section ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
+
+
+/* header and nav styles */
+
+
+/* stretches completely across the page with the color */
+
+.header {
+    background-color: var(--color5);
+}
+
+
+/* width limited and centered to line up with the rest of the page */
+
+header {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* navigation styling - universal across breakpoints */
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* I cover CSS-only hamburger buttons in my Advanced CSS Layouts course.
+Here, because the nav is short, let's try a 4 button layout at the top of the screen.
+*/
+
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-between;
+}
+
+nav li {
+    flex-basis: 48%;
+    margin-bottom: 0.5rem;
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+nav li:first-child a {
+    background-color: transparent;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    display: block;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--color10);
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: var(--color1);
+    color: var(--color5);
+}
+
+
+/* hero styles */
+
+#hero {
+    background-color: var(--color7);
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#hero img {
+    max-width: 100%;
+    max-height: 454px;
+}
+
+
 /* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
 Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
-figure{
+
+figure {
     margin: 0 0 0.5rem 0;
     padding: 0;
+    height: 100%;
     max-height: 400px;
     overflow: hidden;
     position: relative;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 5px;
 }
+
+
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
-figure img{
+
+figure img {
     margin-bottom: -4px;
     width: 100%;
     object-fit: cover;
     object-position: 0 -150px;
 }
-figcaption{
+
+figcaption {
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 1.875rem;
     position: absolute;
     bottom: 0;
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
 }
+
+
 /* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
+
 figcaption a {
     display: block;
     padding: 1rem;
     text-decoration: none;
-    color:  var(--color2);
+    color: var(--color1);
 }
+
+
+/* green stripe for popular images */
+
+.stripe {
+    background-color: var(--color2);
+    color: white;
+    padding: 1rem 0 2rem 0;
+}
+
+
+/* featured image styles */
+
+#featured figure {
+    max-height: 650px;
+}
+
+#featured img {
+    object-position: 0;
+}
+
+
+/* style is doing double duty, styling border color and hover color. Only one declaration usually applies though.  */
+
+.color2,
+.color2 a:hover {
+    border-color: var(--color2);
+    color: var(--color2);
+}
+
+.color3,
+.color3 a:hover {
+    border-color: var(--color3);
+    color: var(--color3);
+}
+
+.color4,
+.color4 a:hover {
+    border-color: var(--color4);
+    color: var(--color4);
+}
+
+.color6,
+.color6 a:hover {
+    border-color: var(--color6);
+    color: var(--color6);
+}
+
+.color7,
+.color7 a:hover {
+    border-color: var(--color7);
+    color: var(--color7);
+}
+
+.color8,
+.color8 a:hover {
+    border-color: var(--color8);
+    color: var(--color8);
+}
+
+
 /* mission styles */
 
-.mission{
+#mission {
     margin-bottom: 3rem;
 }
-.missiontext{
+
+.missiontext {
     display: block;
     line-height: 1.7;
 }
-.missionimg{
-    display: block;
+
+.missionimg {
     max-height: 100px;
+    display: block;
 }
+
+
 /* footer styles */
 
 
@@ -122,7 +287,6 @@ footer h4 {
 }
 
 footer ul {
-    
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -130,9 +294,6 @@ footer ul {
     flex-flow: row wrap;
 }
 
-footer  a{
-    text-decoration-line: none;
-}
 
 /* we want a constant distance between the buttons so they remain clickable at all times. flex-basis doesn't do that - sometimes the buttons are too close together. */
 
@@ -148,22 +309,30 @@ footer address {
 
 
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
-@media (min-width: 550px){
+
+@media (min-width: 550px) {
     section ul,
-    footer{
+    footer {
         display: flex;
+        flex-flow: row wrap;
         justify-content: space-between;
-        flex-flow:  row wrap;
     }
     section li,
-    .social, address{
+    .social,
+    address {
         flex-basis: 49.5%;
     }
-     /* turn off object position, inherit object-fit: cover */
-     figure img{
-         object-position: 0;
-     }
-     /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
+    #popular li:last-child {
+        flex-basis: 100%;
+    }
+    #popular li:last-child figure img {
+        object-position: 0 -350px;
+    }
+    /* turn off object position, inherit object-fit: cover */
+    figure img {
+        object-position: 0;
+    }
+    /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
     .missiontext {
         display: flow-root;
         max-width: 900px;
@@ -178,26 +347,60 @@ footer address {
     footer address {
         margin-top: 0;
     }
+    /* header/nav layout */
+    header {
+        padding: 3rem;
+    }
+    /* navigation: logo on the top line, the rest of the navigation on the second line */
+    nav ul {
+        justify-content: center;
+        gap: 1.2em;
+    }
+    nav li {
+        flex-basis: auto;
+        margin-bottom: 0;
+    }
+    nav a {
+        color: var(--color1);
+        background-color: transparent;
+        padding: 0;
+    }
+    nav a:hover {
+        color: var(--color2);
+        background-color: transparent;
+    }
 }
+
 @media (min-width: 800px) {
     section h2 {
         margin-left: 100px;
     }
-    section li {
+    section li,
+    .social,
+    #popular li:last-child {
         flex-basis: 32.5%;
     }
-}
-@media (min-width: 320px){
-    figure img{
+    #popular li:last-child figure img {
         object-position: 0;
-        width: 100%;
-        height: auto;
     }
-    section li,
-    .social{
-        flex-basis: 32%;
-    }
-    address{
+    address {
         flex-basis: 65.5%;
+    }
+    /* navigation - logo in the center */
+    nav ul {
+        justify-content: flex-end;
+    }
+    nav li:first-child {
+        flex-basis: auto;
+        margin: 0 auto;
+        order: 2;
+    }
+    nav li:nth-child(2),
+    nav li:nth-child(3) {
+        order: 1;
+    }
+    nav li:nth-child(4),
+    nav li:nth-child(5) {
+        order: 3;
     }
 }
